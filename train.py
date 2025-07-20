@@ -242,7 +242,7 @@ def main(args):
     for d in dirs:
         p = data_configs[d]
         if os.path.exists(p):
-            print(f"{dir} OK")
+            print(f"{d} OK")
         else:
             print(f"missing path {p}")
             missing = True
