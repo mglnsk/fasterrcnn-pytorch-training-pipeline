@@ -1,7 +1,7 @@
 # Base-------------------------------------
 albumentations==2.0.8
-ipython
-jupyter
+#ipython
+#jupyter
 matplotlib
 opencv-python>=4.1.1.26
 # opencv-python-headless>=4.1.1.26
@@ -13,7 +13,7 @@ scipy
 torch==2.7.0
 torchvision==0.22.0
 numpy
-protobuf<=3.20.1
+#protobuf<=3.20.1
 pandas
 tqdm
 deep-sort-realtime

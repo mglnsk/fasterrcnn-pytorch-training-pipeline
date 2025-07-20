@@ -83,7 +83,7 @@ def parse_opt():
     )
     parser.add_argument(
         '-j', '--workers', 
-        default=4,
+        default=2,
         type=int,
         help='number of workers for data processing/transforms/augmentations'
     )
@@ -232,6 +232,38 @@ def main(args):
     # Load the data configurations
     with open(args['data']) as file:
         data_configs = yaml.safe_load(file)
+
+
+    # <Validate config>
+    labels = ['TRAIN_DIR_LABELS', 'VALID_DIR_LABELS']
+    images = ['TRAIN_DIR_IMAGES', 'VALID_DIR_IMAGES']
+    dirs = labels + images
+    missing = False
+    for d in dirs:
+        p = data_configs[d]
+        if os.path.exists(p):
+            print(f"{dir} OK")
+        else:
+            print(f"missing path {p}")
+            missing = True
+
+    assert (not missing), "ERROR invalid data config | missing directories"
+    label_files_exists = False
+    image_files_exists = False
+    for d in labels:
+        for fil in os.listdir(data_configs[d]):
+            if "xml" in fil:
+                label_files_exists = True
+                break
+    for d in images:
+        for fil in os.listdir(data_configs[d]):
+            if "jpg" in fil:
+                image_files_exists = True
+                break
+    assert label_files_exists, "No label files in label directory"
+    assert image_files_exists, "No image files in image directory"
+    # </Validate config>
+
 
     init_seeds(args['seed'] + 1 + RANK, deterministic=True)
     

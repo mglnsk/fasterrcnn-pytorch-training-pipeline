@@ -23,7 +23,7 @@ def train_one_epoch(
     model.train()
     metric_logger = utils.MetricLogger(delimiter="  ")
     metric_logger.add_meter("lr", utils.SmoothedValue(window_size=1, fmt="{value:.6f}"))
-    header = f"Epoch: [{epoch}]"
+    header = f"Epoch: [{epoch + 1}]"
 
     # List to store batch losses.
     batch_loss_list = []
