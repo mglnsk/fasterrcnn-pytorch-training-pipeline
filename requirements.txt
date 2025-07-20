@@ -1,7 +1,7 @@
 # Base-------------------------------------
 albumentations==2.0.8
-ipython
-jupyter
+#ipython
+#jupyter
 matplotlib
 opencv-python>=4.1.1.26
 # opencv-python-headless>=4.1.1.26
@@ -11,8 +11,8 @@ scikit-image
 scikit-learn
 scipy
 
-torch==2.7.0
-torchvision==0.22.0
+torch
+torchvision
 torchaudio
 
 numpy
@@ -22,7 +22,7 @@ tqdm
 deep-sort-realtime
 
 # Logging----------------------------------
-wandb
+#wandb
 tensorboard
 
 # Model summary----------------------------
@@ -30,7 +30,7 @@ torchinfo
 
 # Extras-----------------------------------
 pycocotools==2.0.8
-setuptools==80.9.0
+#setuptools==80.9.0
 torchmetrics # Evaluation
 
 # Transformer based models.
